@@ -1,36 +1,43 @@
 
-
+//Variables nécessaires au traitement
 let state = "off"; 
 let timerID; 
 
-
+//Variables correspondant aux élements HTML
 let workElement = document.getElementById("work"); 
 let breakElement = document.getElementById("break"); 
-
-
-
 let minutesElement = document.getElementById("minutes"); 
 let secondesElement = document.getElementById("seconds"); 
+let startElement = document.getElementById("start"); 
+let timeSetterElement = document.getElementById("timeSetter"); 
+let setterEnablerElement = document.getElementById("setterEnabler"); 
 
-minutesElement.textContent = twoDigits(24); 
+//Initialisation du timer 
+minutesElement.textContent = twoDigits(25); 
 secondesElement.textContent = twoDigits(0);
 
+//masqur le setter du timer
+let timeSetterDispaly = (timeSetterElement.style.display); 
+timeSetterElement.style.display = "none"; 
 
-let startElement = document.getElementById("start"); 
+//Listener pour le bouton du setter
+setterEnablerElement.addEventListener("click", ()=>onSetterEnabler()); 
 
 
-
-
-
+//Listener pour le bouton start
 startElement.addEventListener("click", ()=>onStart()); 
 
 
 
+function onSetterEnabler(){
+    //On affiche le setter du timer
+    timeSetterElement.style.display = timeSetterDispaly; 
+}
 
 function onWork(){
     
     setActive(workElement); 
-    minutesElement.textContent = twoDigits(24); 
+    minutesElement.textContent = twoDigits(25); 
     secondesElement.textContent = twoDigits(0);
 
 }

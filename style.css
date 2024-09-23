@@ -141,6 +141,7 @@ main {
 
 button {
     color: yellow;
+    display: block;
 }
 
 .working {
@@ -155,4 +156,42 @@ button {
     --color-secondary: hsl(120, 40%, 40%); 
     --color-font: hsla(0, 0%, 100%, 0.9); 
     --color-shadow: hsl(120, 40%, 30%); 
+}
+
+
+.time-inputs {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-inputs label {
+    margin-bottom: 0.5rem;
+    color: var(--color-font);
+}
+
+.time-inputs input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1.6rem;
+    width: 100%;
+    max-width: 12rem;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+.time-inputs button {
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--color-secondary);
+    color: var(--color-font);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.time-inputs button:hover {
+    background-color: var(--color-shadow);
 }
