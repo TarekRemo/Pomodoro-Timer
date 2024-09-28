@@ -139,9 +139,15 @@ main {
     display: none;
 }
 
+footer.controls{
+    display : flex; 
+    justify-content: center;
+    flex-direction: column;
+}
+
 button {
     color: yellow;
-    display: block;
+    /*display: block;*/
 }
 
 .working {
@@ -194,4 +200,11 @@ button {
 
 .time-inputs button:hover {
     background-color: var(--color-shadow);
+}
+
+.icons{
+    color: yellow;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer; 
 }

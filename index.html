@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/fd882fb6a5.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -17,12 +18,12 @@
                 <h1>POMODORO TIMER</h1>
             </header>
 
-            <article class="painel">
+            <div class="painel">
                 <p id="work">work</p>
                 <p id="break">break</p>
-            </article>
+            </div>
 
-            <section class="timer">
+            <div class="timer">
                 <figure class="circle">
                     <div class="time">
                         <span id="minutes"></span>
@@ -30,11 +31,11 @@
                         <span id="seconds"></span>
                     </div>
                 </figure>
-            </section>
+            </div>
             
             <footer class="controls">
-                <button id="start">start</button>
-                <button id="setterEnabler">set Time</button>
+                <button id="start"><i class="fa-solid fa-play icons"></i></button>
+                <button id="setterEnabler"><i class="fa-regular fa-clock icons"></i></button>
 
                 <div id="timeSetter">
                     <form class="time-inputs" id="timeForm">

@@ -19,7 +19,7 @@ let setterEnablerElement = document.getElementById("setterEnabler");
 
 //Initialisation du timer 
 minutesElement.textContent = twoDigits(workTime); 
-secondesElement.textContent = twoDigits(restTime);
+secondesElement.textContent = twoDigits(0);
 
 //masqur le setter du timer
 let timeFormDisplay = (timeFormElement.style.display); 
@@ -33,7 +33,10 @@ setterEnablerElement.addEventListener("click", ()=>onSetterEnabler());
 startElement.addEventListener("click", ()=>onStart()); 
 
 //Listener pour la validation du formulaire du setter
-timeFormElement.addEventListener("submit", ()=>onSetTimes()); 
+timeFormElement.addEventListener("submit", (evt)=>{
+    evt.preventDefault(); 
+     onSetTimes(); 
+}); 
 
 
 function onSetTimes(){
@@ -42,9 +45,10 @@ function onSetTimes(){
     let workTimeElement = document.getElementById("workTime"); 
     let restTimeElement = document.getElementById("restTime"); 
 
-    workTime = workTimeElement.textContent; 
-    restTime = restTimeElement.textContent; 
+    workTime = workTimeElement.value; 
+    restTime = restTimeElement.value; 
 
+    onReinitialize(); 
 }
 
 function onSetterEnabler(){
@@ -101,7 +105,7 @@ function onStart(){
 
     //Si on veux commencer le timer
     if(state == "off"){
-        startElement.textContent = "reinitialise"; 
+        startElement.innerHTML = '<i class="fa-solid fa-power-off icons"></i>'; 
         state = "on"; 
         onWork(); 
         timerID = setInterval(()=>timerCountDown(), 1000); 
@@ -115,7 +119,7 @@ function onStart(){
 }
 
 function onReinitialize(){
-    startElement.textContent = "start";
+    startElement.innerHTML = '<i class="fa-solid fa-play icons"></i>';
     state = "off"
     clearInterval(timerID); 
     onWork(); 
