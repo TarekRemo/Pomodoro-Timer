@@ -18,7 +18,12 @@ let setterEnablerElement = document.getElementById("setterEnabler");
 
 
 //Initialisation du timer 
-minutesElement.textContent = twoDigits(workTime); 
+if(localStorage.getItem('workTime') != null){
+    minutesElement.textContent = twoDigits(localStorage.getItem('workTime')); 
+}
+else{
+    minutesElement.textContent = twoDigits(workTime); 
+}
 secondesElement.textContent = twoDigits(0);
 
 //masqur le setter du timer
@@ -45,8 +50,13 @@ function onSetTimes(){
     let workTimeElement = document.getElementById("workTime"); 
     let restTimeElement = document.getElementById("restTime"); 
 
+    /*
     workTime = workTimeElement.value; 
     restTime = restTimeElement.value; 
+    */
+
+    localStorage.setItem('workTime', workTimeElement.value); 
+    localStorage.setItem('restTime', restTimeElement.value); 
 
     onReinitialize(); 
 }
@@ -59,7 +69,14 @@ function onSetterEnabler(){
 function onWork(){
     
     setActive(workElement); 
-    minutesElement.textContent = twoDigits(workTime); 
+
+    if(localStorage.getItem('workTime') != null){
+        minutesElement.textContent = twoDigits(localStorage.getItem('workTime')); 
+    }
+    else{
+        minutesElement.textContent = twoDigits(workTime); 
+    }
+
     secondesElement.textContent = twoDigits(0);
 
 }
@@ -69,7 +86,14 @@ function onWork(){
 function onBreak(){
 
     setActive(breakElement); 
-    minutesElement.textContent = twoDigits(restTime); 
+
+    if(localStorage.getItem('restTime') != null){
+        minutesElement.textContent = twoDigits(localStorage.getItem('restTime')); 
+    }
+    else{
+        minutesElement.textContent = twoDigits(restTime); 
+    }
+
     secondesElement.textContent = twoDigits(0);
 
 }
